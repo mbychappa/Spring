@@ -1,0 +1,36 @@
+package com.example.spring.aop;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+ 
+@Aspect
+public class EmployeeAspect {
+ 
+	@Before("getNamePointcut()")
+    //Same as @Before("execution(public String getName())")
+    public void getNameAdvice(){
+        System.out.println("Executing Advice on getName()");
+    }
+     
+	 @Before("getAllmethodsPointcut()")
+	  //Same as @Before("execution(* com.example.spring.aop.*.*(..))")
+	  public void getAllMethodsAdvice(){
+	        System.out.println("Executing Advice on Service method get*");
+	    }
+	 
+    @Before("getAllServicemethodsPointcut()")
+    //Same as @Before("execution(* com.example.spring.aop.*Service.get*())")
+    public void getAllServiceMethodsAdvice(){
+        System.out.println("Executing Advice on Service method get*");
+    }
+    
+    @Pointcut("execution(public String getName())")
+    public void getNamePointcut(){}
+    
+    @Pointcut("within(com.example.spring.aop.*)")
+    public void getAllmethodsPointcut(){}
+    
+    @Pointcut("target(com.example.spring.aop.EmployeeService)")
+    public void getAllServicemethodsPointcut(){}
+}

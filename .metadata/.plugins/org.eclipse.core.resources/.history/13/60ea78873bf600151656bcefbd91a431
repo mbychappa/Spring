@@ -1,0 +1,55 @@
+package com.example.spring.data.dao.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import com.example.spring.data.dao.CustomerDAO;
+import com.example.spring.data.model.Customer;
+
+public class CustomerDAOImpl extends HibernateDaoSupport implements CustomerDAOImpl
+{
+	public void insert(Customer customer){
+		
+		getHibernateTemplate().save(customer);
+		System.out.println("Inserted record for:"+customer.getName());
+	}
+	
+	public Customer findByCustomerId(int custId){
+		
+		List customers = getHibernateTemplate().find("from CUSTOMER where CUST_ID=?",custId);
+		
+		return (Customer) customers.get(0);
+	}
+
+	public List<Customer> findAllCustomers() {
+		List<Customer> customers = getHibernateTemplate().find("from CUSTOMER");
+		
+		return customers;
+	}
+
+	public void delete(Customer customer) {
+		getHibernateTemplate().delete(customer);
+		System.out.println("Deleted record for:"+customer.getName());
+
+
+	}
+
+	public void update(Customer customer) {
+		getHibernateTemplate().update(customer);
+		System.out.println("Updated record for:"+customer.getName());
+
+
+	}
+}
+
+
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+ 
+ 
+<!-- Maruthi Car Bean Definition -->
+ <bean id="Maruthi" class="com.example.spring.Maruthi"/>
+ 
+<!-- Benz Car Bean Definition -->
+ <bean id="Benz" class="com.example.spring.Benz"/>
+
+<!-- Car Bean Definition using Constructor DI-->
+ 
+	<bean id="Car" class="com.example.spring.Car">
+	<constructor-arg ref="Benz"/>
+	</bean>
+
+
+<!-- Car Bean Definition using Constructor DI-->
+<!-- 
+ <bean id="Car" class="com.example.spring.Car">
+ <property name="model" ref="Maruthi"/>
+ </bean>  
+ -->
+ 
+ </beans>
+ 
+ 

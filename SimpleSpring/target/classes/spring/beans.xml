@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+ 
+ <!-- Simple Bean -->   
+ <!-- 
+ <bean id="SimpleBean" class="com.example.bean.SimpleBean"/>
+  -->
+  
+ <!-- Constructor Argument -->
+ <!-- 
+ <bean id="SimpleBean" class="com.example.bean.SimpleBean">
+ <constructor-arg name="name" value="MyBean"/>
+ </bean>
+ -->
+ 
+ <!-- Lazy Init of Bean -->   
+ <!-- 
+ <bean id="SimpleBean" class="com.example.bean.SimpleBean" lazy-init="true"/>
+  -->
+ 
+<!-- Bean Property Init -->   
+<!--  
+ <bean id="SimpleBean" class="com.example.bean.SimpleBean">
+  <property name="name" value="MyBean"/>
+ </bean>	
+ -->  
+
+<!-- Bean Init and Destroy Method-->   
+<!--   
+ <bean id="SimpleBean" class="com.example.bean.SimpleBean"
+ init-method="init" destroy-method="destroy"/>
+ -->  
+ 
+<!-- Singleton Bean -->   
+ <!-- 
+ <bean id="SimpleBean" class="com.example.bean.SimpleBean" scope="singleton"/>
+ --> 
+
+ </beans>
+ 
+ 

@@ -1,0 +1,17 @@
+package com.example.spring.data.dao.impl;
+
+import java.sql.SQLException;
+
+import org.springframework.jdbc.core.RowMapper;
+
+import com.example.spring.data.model.Customer;
+
+public class CustomerMapper implements RowMapper<Customer> {
+	   public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
+		   Customer student = new Customer();
+		      student.setId(rs.getInt("id"));
+		      student.setName(rs.getString("name"));
+		      student.setAge(rs.getInt("age"));
+		      return student;
+		   }
+}

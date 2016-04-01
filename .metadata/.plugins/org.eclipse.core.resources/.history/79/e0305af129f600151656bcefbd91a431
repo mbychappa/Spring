@@ -1,0 +1,23 @@
+package com.example.spring.data.test.common;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.example.spring.data.dao.CustomerDAO;
+import com.example.spring.data.model.Customer;
+
+
+public class AppTest 
+{
+    public static void main( String[] args )
+    {
+    	ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+    	 
+        CustomerDAO customerDAO = (CustomerDAO) context.getBean("customerDAO");
+        Customer customer = new Customer(1, "mkyong",28);
+        customerDAO.insert(customer);
+    	
+        Customer customer1 = customerDAO.findByCustomerId(1);
+        System.out.println(customer1);
+        
+    }

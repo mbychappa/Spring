@@ -1,0 +1,44 @@
+package com.example.spring.data.test.common;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.example.spring.data.dao.CustomerDAO;
+import com.example.spring.data.model.Customer;
+
+
+public class AppTest 
+{
+    public static void main( String[] args )
+    {
+    	ApplicationContext context = 
+	             new ClassPathXmlApplicationContext("spring/Spring-Datasource.xml");
+    	
+        CustomerDAO customerDAO = (CustomerDAO) context.getBean("customerDAO");
+        Customer customer = new Customer(1, "John",28);
+        customerDAO.insert(customer);
+        customer.setName("Peter");
+        customer.setAge(30);
+        customer.setCustId(2);
+        customerDAO.insert(customer);
+
+    	
+        Customer customer1 = customerDAO.findByCustomerId(1);
+        System.out.println(customer1);
+        
+        List<Customer> customers=customerDAO.findAllCustomers();
+        Iterator<Customer> iterator=customers.iterator();
+        
+        while(iterator.hasNext())
+        {
+        	Customer cust=(Customer)iterator.next();
+            System.out.println(cust);
+
+        }
+        
+        customerDAO.delete(1);
+    }
+}

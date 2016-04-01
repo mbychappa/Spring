@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+ 
+ 
+<!-- Maruthi Car Bean Definition -->
+ <bean id="Maruthi" class="com.example.spring.Maruthi"/>
+ 
+<!-- Benz Car Bean Definition -->
+<bean id="model" class="com.example.spring.Benz"/>
+
+
+<!-- Auto-wiring Car Bean by-name--> 
+<!-- 
+<bean id="Car" class="com.example.spring.Car" autowire="byName"/>
+ -->
+ 
+ 
+<!-- Auto-wiring Car Bean by-type-->
+<!-- 
+<bean id="Car" class="com.example.spring.Car" autowire="byType"/>
+ -->
+ 
+<!-- Auto-wiring Car Bean constructor-->
+<!-- 
+<bean id="Car" class="com.example.spring.Car" autowire="constructor"/>
+ -->
+   
+ </beans>
+ 
+ 

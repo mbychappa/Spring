@@ -1,0 +1,13 @@
+package com.example.spring.data.dao;
+
+import com.example.spring.data.model.Customer;
+
+public interface CustomerDAO 
+{
+	public void insert(Customer customer);
+	public Customer findByCustomerId(int custId);
+}
+
+
+
+
