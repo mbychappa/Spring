@@ -1,0 +1,4 @@
+http://localhost:8080/helloworldMVC/
+http://localhost:8080/helloworldMVC/hello/tom
+http://localhost:8080/helloworldMVC/hello?name=tom
+http://localhost:8080/helloworldMVC/customer
