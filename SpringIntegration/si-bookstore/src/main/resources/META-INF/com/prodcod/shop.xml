@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd">
 
 	<!-- Declare the gateway -->
-	<int:gateway id="shop" service-interface="com.prodcod.service.Shop" />
+	<int:gateway id="shop" service-interface="com.example.spring.integration.service.Shop" />
 
 	<!-- Declare the input channel in which Orders are placed for processing -->
 	<int:channel id="ordersChannel" />
@@ -28,7 +28,7 @@
 		processed -->
 	<int:splitter input-channel="ordersChannel" ref="orderSplitter"
 		output-channel="orderItemsChannel" />
-	<beans:bean id="orderSplitter" class="com.prodcod.service.OrderSplitter" />
+	<beans:bean id="orderSplitter" class="com.example.spring.integration.service.OrderSplitter" />
 
 
 	<!-- The router sends different drink orders on different paths -->
@@ -45,7 +45,7 @@
 
 	<int:router input-channel="orderItemsChannel" ref="orderRouter"
 		method="routeOrder" />
-	<beans:bean id="orderRouter" class="com.prodcod.service.OrderItemRouter" />
+	<beans:bean id="orderRouter" class="com.example.spring.integration.service.OrderItemRouter" />
 
 	<int:channel id="bookItemsChannel">
 		<int:queue capacity="10" />
@@ -65,13 +65,13 @@
 	<int:service-activator input-channel="softwareItemsChannel"
 		ref="shopkeeper" method="processSoftware" output-channel="processedItems" />
 
-	<beans:bean id="shopkeeper" class="com.prodcod.service.Shopkeeper" />
+	<beans:bean id="shopkeeper" class="com.example.spring.integration.service.Shopkeeper" />
 
 	<!-- drink order items are aggregated in a call to the waiter -->
 	<int:channel id="processedItems" />
 	<int:aggregator input-channel="processedItems" method="prepareDelivery"
 		output-channel="deliveries">
-		<beans:bean class="com.prodcod.service.OrderCompleter" />
+		<beans:bean class="com.example.spring.integration.service.OrderCompleter" />
 	</int:aggregator>
 
 	<int-stream:stdout-channel-adapter

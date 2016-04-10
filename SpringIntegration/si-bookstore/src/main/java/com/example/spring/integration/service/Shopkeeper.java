@@ -28,7 +28,7 @@ public class Shopkeeper {
 	 * @return OrderItem with discount price newly calculated
 	 */
 	public OrderItem processBooks(OrderItem bookOrderItem){		
-		log.debug("*** [Shopkeeper] processing book : "+ bookOrderItem.getItem().getTitle() +" ****");
+		log.info("*** [Shopkeeper] processing book : "+ bookOrderItem.getItem().getTitle() +" ****");
 
 		final BigDecimal finalPrice = calculateDiscountedPrice(bookOrderItem, BOOK_DISCOUNT);
 				
@@ -43,7 +43,7 @@ public class Shopkeeper {
 	 * @return OrderItem with discount price newly calculated
 	 */
 	public  OrderItem processMusic(OrderItem musicOrderItem){		
-		log.debug("*** [Shopkeeper] processing music : "+ musicOrderItem.getItem().getTitle() +" ****");
+		log.info("*** [Shopkeeper] processing music : "+ musicOrderItem.getItem().getTitle() +" ****");
 
 		final BigDecimal finalPrice = calculateDiscountedPrice(musicOrderItem, MUSIC_DISCOUNT);
 
@@ -58,7 +58,7 @@ public class Shopkeeper {
 	 * @return OrderItem with discount price newly calculated
 	 */
 	public  OrderItem processSoftware(OrderItem softwareOrderItem){		
-		log.debug("*** [Shopkeeper] processing software : "+ softwareOrderItem.getItem().getTitle() +" ****");
+		log.info("*** [Shopkeeper] processing software : "+ softwareOrderItem.getItem().getTitle() +" ****");
 
 		final BigDecimal finalPrice = calculateDiscountedPrice(softwareOrderItem, SOFTWARE_DISCOUNT);
 		
@@ -77,7 +77,7 @@ public class Shopkeeper {
 		final BigDecimal discountedPrice =round(orderItem.getTotalPrice().multiply(discount));
 		final BigDecimal finalPrice = round(orderItem.getTotalPrice().subtract(discountedPrice));
 
-		log.debug("item (" + getItemType(orderItem) + ") " +  
+		log.info("item (" + getItemType(orderItem) + ") " +  
 				"item price: " + orderItem.getItem().getPrice() +
 				" discount: " + discountedPrice +
 				" final price: " + finalPrice);

@@ -34,7 +34,7 @@ public class OnlineShop {
 		final Order order = createOrder();
 		
 		
-		log.debug("*** [OnlineShop] ****");
+		log.info("*** [OnlineShop] ****");
 		shop.placeOrder(order);
 		
 		context.close();
@@ -64,7 +64,7 @@ public class OnlineShop {
 		
 		Order order = new Order();
 		order.setOrderItems(orderItems);
-		log.debug("Order: " + order);
+		log.info("Order: " + order);
 //		log.debug("Total : "+ order.getTotalCost());
 
 		return order;

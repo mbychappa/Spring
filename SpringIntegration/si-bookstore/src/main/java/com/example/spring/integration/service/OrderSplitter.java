@@ -19,7 +19,7 @@ public class OrderSplitter extends AbstractMessageSplitter{
 	
 //		log.debug("*** [OrderSplitter] ****");
 
-		log.debug("*** [OrderSplitter] splitting Order into it's constituent OrderItems : number of OrderItems: "+ ((Order)message.getPayload()).getOrderItems().size() + " ****");
+		log.info("*** [OrderSplitter] splitting Order into it's constituent OrderItems : number of OrderItems: "+ ((Order)message.getPayload()).getOrderItems().size() + " ****");
 
 		return ((Order)message.getPayload()).getOrderItems();
 	}

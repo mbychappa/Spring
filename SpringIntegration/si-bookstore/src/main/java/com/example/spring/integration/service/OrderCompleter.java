@@ -24,7 +24,7 @@ public class OrderCompleter {
 //		log.debug("*** [OrderCompleter] CompletedOrder : "
 //		+ order +" ****");
 
-		log.debug("*** [OrderCompleter] CompletedOrder Discounted cost: "
+		log.info("*** [OrderCompleter] CompletedOrder Discounted cost: "
 		+ order.getTotalDiscountedCost() +" ****");
 
 		return order;

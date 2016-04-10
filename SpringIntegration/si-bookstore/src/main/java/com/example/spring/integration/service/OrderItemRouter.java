@@ -1,6 +1,11 @@
 package com.example.spring.integration.service;
 
+import java.util.Collection;
+
 import org.apache.log4j.Logger;
+import org.springframework.integration.router.AbstractMessageRouter;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageChannel;
 
 import com.example.spring.integration.domain.Book;
 import com.example.spring.integration.domain.MusicCD;
@@ -22,7 +27,7 @@ public class OrderItemRouter {
 
 	public String routeOrder(OrderItem orderItem) {
 		
-		log.debug("*** [OrderItemRouter] ****");
+		log.info("*** [OrderItemRouter] ****");
 
 		String channel = "";
 		if(isBook(orderItem)) {
@@ -35,7 +40,7 @@ public class OrderItemRouter {
 			channel = "softwareItemsChannel";
 		}
 
-		log.debug("*** [OrderItemRouter] sending item : " + orderItem.getItem().getTitle() + " to "+ channel +  " ****");
+		log.info("*** [OrderItemRouter] sending item : " + orderItem.getItem().getTitle() + " to "+ channel +  " ****");
 
 		return channel;
    }
@@ -49,4 +54,6 @@ public class OrderItemRouter {
 	private Boolean isSoftware(OrderItem orderItem) {
 		return orderItem.getItem() instanceof Software;			
 	}
+
+	
 }
